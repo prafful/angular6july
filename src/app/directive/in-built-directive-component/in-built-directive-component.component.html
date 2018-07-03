@@ -1,0 +1,36 @@
+<h4>*ngIf Directive</h4>
+<button (click)="doMagic()">*ngIf</button>
+<div *ngIf="showPara">
+<p>Should I display or hide?</p>
+
+</div>
+
+<h4>*ngFor Directive</h4>
+
+<table border="1" *ngIf="showPara">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>ZIP</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of typicodeUsers">
+
+      <td>{{user.id }}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.address.zipcode }}</td>
+      <td>{{user.address.geo.lat}}</td>
+      <td>{{user.address.geo.lng}}</td>
+    </tr>
+
+
+  </tbody>
+</table>
