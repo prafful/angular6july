@@ -19,6 +19,7 @@ import { SortStringPipePipe } from './inbuiltpipes/custompipe/sort-string-pipe.p
 import { SortNumberPipePipe } from './inbuiltpipes/custompipe/sort-number-pipe.pipe';
 import { ReverseStringPipe } from './inbuiltpipes/custompipe/reverse-string.pipe';
 import { SearchFilterPipe } from './inbuiltpipes/custompipe/search-filter.pipe';
+import { TemplateformComponent } from './forms/templateform/templateform.component';
 
 @NgModule({
   declarations: 
@@ -37,7 +38,8 @@ import { SearchFilterPipe } from './inbuiltpipes/custompipe/search-filter.pipe';
     SortStringPipePipe,
     SortNumberPipePipe,
     ReverseStringPipe,
-    SearchFilterPipe
+    SearchFilterPipe,
+    TemplateformComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +77,10 @@ import { SearchFilterPipe } from './inbuiltpipes/custompipe/search-filter.pipe';
       {
         path:'inbuiltpipe',
         component:MypipecomponentComponent
+      },
+      {
+        path:'templateform',
+        component:TemplateformComponent
       },
       {
         path:'**',
