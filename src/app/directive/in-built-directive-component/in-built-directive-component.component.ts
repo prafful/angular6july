@@ -9,6 +9,8 @@ export class InBuiltDirectiveComponentComponent implements OnInit {
 
   showPara = true
 
+  name =  'obb'
+
   typicodeUsers = [
     {
       "id": 1,

@@ -34,3 +34,27 @@
 
   </tbody>
 </table>
+
+<h4>Switch Case Directive</h4>
+<input type="text" [(ngModel)]='name'>
+<div [ngSwitch]='name'> 
+<div *ngSwitchCase="'obb'" style="background-color: pink; font-size: 24px;">My name is OBB</div>
+<div *ngSwitchCase="'prafful'" style="background-color: greenyellow; font-size: 24px;">My name is Prafful</div>
+<div *ngSwitchCase="'adi'" style="background-color:lightblue; font-size: 24px;">My name is Adi</div>
+<div *ngSwitchDefault style="background-color: wheat; font-size: 24px;">I am everywhere!!!</div>
+
+</div>
+
+<button (click)="name='obb'">OBB</button> &nbsp;
+  <button (click)="name='prafful'">Prafful</button>&nbsp;
+<button (click)="name='adi'">Adi</button>&nbsp;
+
+
+<h4>Custom Directive</h4>
+<p ctsSetbg>My background color is set using custom directive</p>
+
+
+
+
+
+

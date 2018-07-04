@@ -13,6 +13,9 @@ import { NuclearFamilyComponent } from './family/nuclear-family/nuclear-family.c
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { TaskmanagerComponent } from './todo/taskmanager/taskmanager.component';
 import { InBuiltDirectiveComponentComponent } from './directive/in-built-directive-component/in-built-directive-component.component';
+import { SetbgDirective } from './directive/customdirective/setbg.directive';
+import { MypipecomponentComponent } from './inbuiltpipes/mypipecomponent/mypipecomponent.component';
+import { SortStringPipePipe } from './inbuiltpipes/custompipe/sort-string-pipe.pipe';
 
 @NgModule({
   declarations: 
@@ -25,7 +28,10 @@ import { InBuiltDirectiveComponentComponent } from './directive/in-built-directi
     NuclearFamilyComponent,
     NotFoundComponentComponent,
     TaskmanagerComponent,
-    InBuiltDirectiveComponentComponent
+    InBuiltDirectiveComponentComponent,
+    SetbgDirective,
+    MypipecomponentComponent,
+    SortStringPipePipe
   ],
   imports: [
     BrowserModule,
@@ -59,6 +65,10 @@ import { InBuiltDirectiveComponentComponent } from './directive/in-built-directi
       {
         path:'directive',
         component:InBuiltDirectiveComponentComponent
+      },
+      {
+        path:'inbuiltpipe',
+        component:MypipecomponentComponent
       },
       {
         path:'**',
