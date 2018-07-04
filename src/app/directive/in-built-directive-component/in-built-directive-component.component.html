@@ -6,7 +6,7 @@
 </div>
 
 <h4>*ngFor Directive</h4>
-
+Search: <input type="text" [(ngModel)]="searchString"> {{searchString}}
 <table border="1" *ngIf="showPara">
   <thead>
     <tr>
@@ -20,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of typicodeUsers">
+    <tr *ngFor="let user of typicodeUsers | searchFilter:searchString">
 
       <td>{{user.id }}</td>
       <td>{{user.name}}</td>

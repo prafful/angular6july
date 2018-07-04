@@ -16,6 +16,9 @@ import { InBuiltDirectiveComponentComponent } from './directive/in-built-directi
 import { SetbgDirective } from './directive/customdirective/setbg.directive';
 import { MypipecomponentComponent } from './inbuiltpipes/mypipecomponent/mypipecomponent.component';
 import { SortStringPipePipe } from './inbuiltpipes/custompipe/sort-string-pipe.pipe';
+import { SortNumberPipePipe } from './inbuiltpipes/custompipe/sort-number-pipe.pipe';
+import { ReverseStringPipe } from './inbuiltpipes/custompipe/reverse-string.pipe';
+import { SearchFilterPipe } from './inbuiltpipes/custompipe/search-filter.pipe';
 
 @NgModule({
   declarations: 
@@ -31,7 +34,10 @@ import { SortStringPipePipe } from './inbuiltpipes/custompipe/sort-string-pipe.p
     InBuiltDirectiveComponentComponent,
     SetbgDirective,
     MypipecomponentComponent,
-    SortStringPipePipe
+    SortStringPipePipe,
+    SortNumberPipePipe,
+    ReverseStringPipe,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

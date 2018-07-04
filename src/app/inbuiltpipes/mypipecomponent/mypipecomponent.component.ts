@@ -14,6 +14,8 @@ export class MypipecomponentComponent implements OnInit {
 
   friends = ['manu','tonu','onu','zonu','donu']
 
+  scores = [10,20,5,8,9,2,99,2,4,1,18,15]
+
 
   constructor() { }
 
