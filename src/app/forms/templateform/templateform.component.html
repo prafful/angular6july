@@ -2,7 +2,7 @@
 
 <form #userForm="ngForm" >
 
-  Name: <input type="text" name='name' ngModel> <br>
+  Name: <input type="text" name='name' ngModel required> <br>
   Age: <input type="number" name='age' ngModel> <br>
   Gender: 
   <select name="gender" ngModel >
@@ -10,6 +10,6 @@
     <option value="female">Female</option>
   </select> <br>
 
-  <button (click)="userData(userForm.value)">Add User</button>
+  <button (click)="userData(userForm.value)" >Add User</button>
 
 </form>

@@ -1,0 +1,19 @@
+<h4>Model Form Fundamental</h4>
+
+<form [formGroup]="userModelForm" >
+
+  Name: <input type="text" formControlName='name'> <br>
+  Age: <input type="number" formControlName='age'> <br>
+  Gender: 
+  <select formControlName='gender'>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select> <br>
+
+  <button 
+        (click)="userData(userModelForm.value)"
+         [disabled]="!userModelForm.valid"
+         >
+    Add User</button>
+
+</form>

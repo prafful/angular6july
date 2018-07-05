@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from "@angular/router";
-import { FormsModule } from "@angular/forms";
+import { RouterModule, Routes } from "@angular/router";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+
 
 import { NgModule } from '@angular/core';
 
@@ -20,6 +22,85 @@ import { SortNumberPipePipe } from './inbuiltpipes/custompipe/sort-number-pipe.p
 import { ReverseStringPipe } from './inbuiltpipes/custompipe/reverse-string.pipe';
 import { SearchFilterPipe } from './inbuiltpipes/custompipe/search-filter.pipe';
 import { TemplateformComponent } from './forms/templateform/templateform.component';
+import { ModelformComponent } from './forms/modelform/modelform.component';
+import { Consumeservice1Component } from './consumeServices/consumeservice1/consumeservice1.component';
+import { Consumeservice2Component } from './consumeServices/consumeservice2/consumeservice2.component'
+
+
+import { CustomRemoteServiceService } from "./services/custom-remote-service.service";
+import {CustomLocalServiceService} from './services/custom-local-service.service';
+import { ConsumeRemoteServicComponent } from './consumeServices/consume-remote-servic/consume-remote-servic.component';
+
+
+const myroutes:Routes = [
+  {
+    path:'',
+    component:TaskmanagerComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'family',
+    component:NuclearFamilyComponent,
+    children:[
+      {
+        path:'father',
+        component:FatherComponent
+      },
+      {
+        path:'mother',
+        component:MotherComponent
+      },
+      {
+        path:'son',
+        component:SonComponent
+      },
+      {
+        path:'daughter',
+        component:DaughterComponent
+      }
+    ]
+  },
+  {
+    path:'todo',
+    component:TaskmanagerComponent
+  },
+  {
+    path:'directive',
+    component:InBuiltDirectiveComponentComponent
+  },
+  {
+    path:'inbuiltpipe',
+    component:MypipecomponentComponent
+  },
+  {
+    path:'templateform',
+    component:TemplateformComponent
+  },
+  {
+    path:'modelform',
+    component:ModelformComponent
+  },
+  {
+    path:'consumeservice1',
+    component:Consumeservice1Component
+  },
+  {
+    path:'consumeservice2',
+    component:Consumeservice2Component
+  },
+  {
+    path:'consumeremote',
+    component:ConsumeRemoteServicComponent
+  },
+
+  {
+    path:'**',
+    component:NotFoundComponentComponent,
+  }
+]
+
+
+
 
 @NgModule({
   declarations: 
@@ -39,57 +120,19 @@ import { TemplateformComponent } from './forms/templateform/templateform.compone
     SortNumberPipePipe,
     ReverseStringPipe,
     SearchFilterPipe,
-    TemplateformComponent
+    TemplateformComponent,
+    ModelformComponent,
+    Consumeservice1Component,
+    Consumeservice2Component,
+    ConsumeRemoteServicComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path:'',
-        component:MotherComponent,
-        pathMatch:'full'
-      },
-      {
-        path:'father',
-        component:FatherComponent
-      },
-      {
-        path:'mother',
-        component:MotherComponent
-      },
-      {
-        path:'son',
-        component:SonComponent
-      },
-      {
-        path:'daughter',
-        component:DaughterComponent
-      },
-      {
-        path:'todo',
-        component:TaskmanagerComponent
-      },
-      {
-        path:'directive',
-        component:InBuiltDirectiveComponentComponent
-      },
-      {
-        path:'inbuiltpipe',
-        component:MypipecomponentComponent
-      },
-      {
-        path:'templateform',
-        component:TemplateformComponent
-      },
-      {
-        path:'**',
-        component:NotFoundComponentComponent,
-      }
-    ])
-    
+    RouterModule.forRoot(myroutes),
+    ReactiveFormsModule, HttpClientModule
   ],
-  providers: [],
+  providers: [CustomLocalServiceService, CustomRemoteServiceService],
   bootstrap: [RootComponent]
 })
 
