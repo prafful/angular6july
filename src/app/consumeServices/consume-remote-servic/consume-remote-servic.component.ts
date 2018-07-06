@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomRemoteServiceService } from '../../services/custom-remote-service.service';
+import {CustomRemoteServiceService} from '../../services/custom-remote-service.service'
 
 
 @Component({
@@ -9,18 +9,34 @@ import { CustomRemoteServiceService } from '../../services/custom-remote-service
 })
 export class ConsumeRemoteServicComponent implements OnInit {
 
+  receivedData
   constructor(private remoteService:CustomRemoteServiceService) { }
 
   ngOnInit() {
     this.getRemoteData()
   }
 
-  getRemoteData = function(){
+  getRemoteData(){
     this.remoteService.getRemoteData().subscribe(
-      (user)=>{
-        console.log(user)
+      (remoteData)=>{
+        console.log("calling remote data after subscription")
+        console.log(remoteData)
+        this.receivedData = remoteData
+        console.log(this.receivedData)
       }
     )
   }
+
+  createUser(jsonUser){
+    var name  = jsonUser.name
+    var username = jsonUser.username
+    var email = jsonUser.email
+    this.remoteService.createRemoteUser(name, username, email).subscribe(
+      (response)=>{
+        console.log("user Added Successfully!!!")
+      })
+  }
+
+ 
 
 }

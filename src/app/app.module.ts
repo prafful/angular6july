@@ -25,9 +25,8 @@ import { TemplateformComponent } from './forms/templateform/templateform.compone
 import { ModelformComponent } from './forms/modelform/modelform.component';
 import { Consumeservice1Component } from './consumeServices/consumeservice1/consumeservice1.component';
 import { Consumeservice2Component } from './consumeServices/consumeservice2/consumeservice2.component'
+import {UserDetailComponent } from "./userDetail/user-detail/user-detail.component";
 
-
-import { CustomRemoteServiceService } from "./services/custom-remote-service.service";
 import {CustomLocalServiceService} from './services/custom-local-service.service';
 import { ConsumeRemoteServicComponent } from './consumeServices/consume-remote-servic/consume-remote-servic.component';
 
@@ -90,7 +89,13 @@ const myroutes:Routes = [
   },
   {
     path:'consumeremote',
-    component:ConsumeRemoteServicComponent
+    component:ConsumeRemoteServicComponent,
+    children:[
+      {
+        path:':id',
+        component:UserDetailComponent
+      }
+    ]
   },
 
   {
@@ -124,15 +129,17 @@ const myroutes:Routes = [
     ModelformComponent,
     Consumeservice1Component,
     Consumeservice2Component,
-    ConsumeRemoteServicComponent
+    ConsumeRemoteServicComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(myroutes),
-    ReactiveFormsModule, HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [CustomLocalServiceService, CustomRemoteServiceService],
+  providers: [CustomLocalServiceService],
   bootstrap: [RootComponent]
 })
 
